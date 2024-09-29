@@ -22,10 +22,11 @@ cd NBMiner_Linux
 machine_name=$(hostname)
 mining_user="0xa65fa6902f995987cc0831b2005daf3a5ba961ef.${machine_name}"
 
-# Step 6: 创建或编辑 start_etc.sh 文件
-echo "正在创建或编辑 start_etc.sh 文件..."
+# Step 6: 自动生成 start_etc.sh 文件
+echo "正在自动生成 start_etc.sh 文件..."
 cat > start_etc.sh <<EOL
 #!/bin/bash
+# 启动NBMiner并使用生成的用户名进行挖矿
 ./nbminer -a etchash -o stratum+tcp://sh.etc.skypool.xyz:19999 -u $mining_user -log
 EOL
 
