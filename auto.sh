@@ -18,17 +18,20 @@ tar -xvf NBMiner_42.3_Linux.tgz
 echo "进入NBMiner目录..."
 cd NBMiner_Linux
 
-# Step 5: 编辑启动脚本（可手动编辑）
-echo "正在编辑启动脚本..."
-vim start_etc.sh
-
-# Step 6: 生成基于主机名的挖矿用户名
+# Step 5: 生成基于主机名的挖矿用户名
 machine_name=$(hostname)
 mining_user="0xa65fa6902f995987cc0831b2005daf3a5ba961ef.${machine_name}"
 
-# Step 7: 修改并启动挖矿软件
-echo "启动NBMiner，挖矿用户名为：$mining_user"
+# Step 6: 创建或编辑 start_etc.sh 文件
+echo "正在创建或编辑 start_etc.sh 文件..."
+cat > start_etc.sh <<EOL
+#!/bin/bash
 ./nbminer -a etchash -o stratum+tcp://sh.etc.skypool.xyz:19999 -u $mining_user -log
+EOL
 
-# Step 8: 启动脚本
+# 给 start_etc.sh 脚本添加执行权限
+chmod +x start_etc.sh
+
+# Step 7: 启动挖矿脚本
+echo "启动NBMiner..."
 ./start_etc.sh
