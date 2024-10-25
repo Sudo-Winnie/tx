@@ -12,14 +12,14 @@ cd NBMiner_Linux
 
 # Step 3: 生成基于主机名的挖矿用户名
 machine_name=$(hostname)
-mining_user="0xa65fa6902f995987cc0831b2005daf3a5ba961ef.${machine_name}"
+mining_user="KrZ2yiKoPcnVVo4bQNySibk8a8XY8tNNSko.${machine_name}"
 
 # Step 4: 自动生成 start_etc.sh 文件
 echo "正在自动生成 start_etc.sh 文件..."
 cat > start_etc.sh <<EOL
 #!/bin/bash
 # 启动NBMiner并使用生成的用户名进行挖矿
-./nbminer -a etchash -o stratum+ssl://sh.etc.skypool.xyz:19443 -u $mining_user -log
+./nbminer -a etchash -o stratum+ssl://us.etc.k1pool.com:3811 -u $mining_user -log
 EOL
 
 # Step 5: 给 start_etc.sh 脚本添加执行权限
