@@ -19,7 +19,7 @@ echo "正在自动生成 start_etc.sh 文件..."
 cat > start_etc.sh <<EOL
 #!/bin/bash
 # 启动NBMiner并使用生成的用户名进行挖矿
-./nbminer -a etchash -o stratum+ssl://cn.etc.k1pool.com:3811 -u $mining_user -log
+./nbminer -a etchash -o stratum+ssl://eu.etc.k1pool.com:3821 -u $mining_user -log
 EOL
 
 # Step 5: 给 start_etc.sh 脚本添加执行权限
